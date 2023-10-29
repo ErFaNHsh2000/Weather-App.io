@@ -96,16 +96,6 @@ body {
   }
 }
 
-@keyframes on_off_light {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
 .input:focus,
 .btn:focus {
   outline: none;
@@ -126,6 +116,34 @@ body {
   transform: translateY(30vw);
   opacity: 0;
   transition: 0.5s ease;
+
+  .wave {
+    opacity: 0.3;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    background: white;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 3000ms infinite linear;
+    z-index: 1;
+  }
+
+  .wave.-three {
+    animation: drift 5000ms infinite linear;
+    z-index: 2 !important;
+    opacity: 0.2;
+  }
+
+  .wave.-two {
+    animation: drift 7000ms infinite linear;
+    opacity: 0.1;
+    z-index: 3 !important;
+  }
 
   .weatherIcon {
     flex: 1 100%;
@@ -225,6 +243,25 @@ body {
     .swal2-confirm {
       font-size: 1.5rem;
     }
+  }
+}
+
+@keyframes on_off_light {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
   }
 }
 
