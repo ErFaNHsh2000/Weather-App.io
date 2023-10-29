@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Muli);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif; }
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; }
+
+#BgImage {
+  width: 100vw;
+  height: 100vh;
+  filter: blur(3px);
+  transform: scale(1.03); }
+
+.SearchBox {
+  position: absolute;
+  top: 10%;
+  height: 10vmin; }
+  .SearchBox label {
+    display: none;
+    position: absolute;
+    top: -40%;
+    width: 100%;
+    font-size: 3vmin;
+    color: #fff; }
+  .SearchBox .input {
+    height: 10vmin;
+    width: 10vmin;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+    transition: width 0.3s ease;
+    border-radius: 50px; }
+  .SearchBox .input::placeholder {
+    font-size: 3vmin; }
+  .SearchBox .btn {
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    width: 10vmin;
+    height: 10vmin;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    transition: transform 0.3s ease;
+    border-radius: 50px; }
+    .SearchBox .btn i {
+      padding: 25%;
+      background-color: #00000020;
+      border-radius: 50px; }
+  .SearchBox .btn:hover i {
+    background-color: #00000050; }
+
+.SearchBox.active label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  animation: on_off_light 1.5s ease infinite; }
+
+.SearchBox.active .input {
+  width: 50vw; }
+
+.SearchBox.active .btn {
+  left: auto;
+  right: 0; }
+
+@keyframes on_off_light {
+  0%,
+  100% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+.input:focus,
+.btn:focus {
+  outline: none; }
+
+.ResultTable {
+  position: absolute;
+  top: 25%;
+  width: 50vw;
+  height: 50vh;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(30vw);
+  opacity: 0;
+  transition: 0.5s ease; }
+  .ResultTable .weatherIcon {
+    flex: 1 100%;
+    height: 60%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #fafafa;
+    font-family: weathericons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px; }
+  .ResultTable .weatherInfo {
+    flex: 0 0 70%;
+    height: 40%;
+    background: #080705;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: white; }
+    .ResultTable .weatherInfo .temperature {
+      flex: 0 50%;
+      width: 100%;
+      height: 100%;
+      font-size: 4vw;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .ResultTable .weatherInfo .description {
+      flex: 0 50%;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      justify-content: center; }
+      .ResultTable .weatherInfo .description .weatherCondition {
+        text-transform: uppercase;
+        font-size: 2vw;
+        font-weight: 100; }
+      .ResultTable .weatherInfo .description .place {
+        font-size: 1vw; }
+  .ResultTable .date {
+    flex: 0 0 30%;
+    height: 40%;
+    background: #70c1b3;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2vw;
+    font-weight: bold; }
+
+.ResultTable.active {
+  transform: none;
+  opacity: 1; }
+
+.wind {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  font-size: 1.5vw;
+  flex: 0 50%;
+  gap: 10px; }
+  .wind .moveDeg i,
+  .wind .speed i {
+    margin-right: 5px; }
+
+.swal2-html-container p {
+  font-size: 2rem; }
+
+.swal2-html-container .swal2-styled .swal2-confirm {
+  font-size: 1.5rem; }
+
+@media only screen and (max-width: 992px) {
+  .ResultTable {
+    width: 70vw; }
+    .ResultTable .weatherInfo {
+      flex: 0 0 100%;
+      border-radius: 0; }
+      .ResultTable .weatherInfo .temperature {
+        font-size: 7vw; }
+      .ResultTable .weatherInfo .description {
+        padding: 10px; }
+        .ResultTable .weatherInfo .description .weatherCondition {
+          font-size: 4vw; }
+        .ResultTable .weatherInfo .description .place {
+          font-size: 3vw; }
+      .ResultTable .weatherInfo .wind {
+        font-size: 3.5vw;
+        gap: 5px; }
+        .ResultTable .weatherInfo .wind .moveDeg,
+        .ResultTable .weatherInfo .wind .speed {
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+          width: 100%; }
+          .ResultTable .weatherInfo .wind .moveDeg i,
+          .ResultTable .weatherInfo .wind .speed i {
+            font-size: 5vw; }
+    .ResultTable .date {
+      flex: 0 0 100%;
+      border-bottom-left-radius: 20px;
+      font-size: 6vw; }
+  .SearchBox label {
+    padding: 0 25%;
+    top: -80%; } }

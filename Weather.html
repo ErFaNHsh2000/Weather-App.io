@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather Page</title>
+    <link rel="stylesheet" href="./Css/WeatherStyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <img id="BgImage" src="./Image/59847.jpg" />
+
+    <div class="SearchBox">
+      <label for="input">Press Enter key to search your city</label>
+      <input type="text" id="input" class="input" placeholder="" />
+      <button class="btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+    <div class="ResultTable">
+      <div class="weatherIcon"></div>
+      <div class="weatherInfo">
+        <div class="temperature"></div>
+        <div class="wind">
+          <div class="moveDeg"></div>
+          <div class="speed"></div>
+        </div>
+        <div class="description">
+          <div class="weatherCondition"></div>
+          <div class="place"></div>
+        </div>
+      </div>
+      <div class="date">
+        <div class="CurrentClock"></div>
+        <div class="CurrentDay"></div>
+      </div>
+    </div>
+
+    <script src="./Js/WeatherJS.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+  </body>
+</html>
