@@ -89,7 +89,7 @@ body {
   flex-wrap: wrap;
   cursor: pointer;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-  transform: translateY(30vw);
+  transform: translateY(100vh);
   opacity: 0;
   transition: 0.5s ease; }
   .ResultTable .weatherIcon {
