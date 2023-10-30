@@ -7,7 +7,7 @@ const ResultTable = document.querySelector(".ResultTable");
 const place = document.querySelector(".place");
 const temperature = document.querySelector(".temperature");
 const weatherCondition = document.querySelector(".weatherCondition");
-const weatherIcon = document.querySelector(".weatherIcon");
+const weatherIcon = document.querySelector(".icon");
 const moveDeg = document.querySelector(".moveDeg");
 const speed = document.querySelector(".speed");
 const clock = document.querySelector(".CurrentClock");
@@ -21,7 +21,7 @@ btn.addEventListener("click", () => {
 });
 
 bgImg.addEventListener("click", () => {
-  input.value = ""
+  input.value = "";
   SearchBox.classList.remove("active");
   ResultTable.classList.remove("active");
 });
@@ -35,31 +35,29 @@ window.addEventListener("keydown", (event) => {
 });
 
 async function getweather(CityName) {
-  var info = await (
-    await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=${keyid}`
-    ).then(response => response.json())
-  );
+  var info = await await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=${keyid}`
+  ).then((response) => response.json());
 
   console.log(info);
-  
+
   setinfo(info);
 }
 
 function setinfo(data) {
   if (data["message"]) {
     Swal.fire({
-      icon: 'error',
-      html: '<p>City not found</p>',
+      icon: "error",
+      html: "<p>City not found</p>",
       showClass: {
-      popup: 'animate__animated animate__fadeInDown'
+        popup: "animate__animated animate__fadeInDown",
       },
       hideClass: {
-          popup: 'animate__animated animate__fadeOutDown'
-      }
-  })
+        popup: "animate__animated animate__fadeOutDown",
+      },
+    });
 
-    input.value = ""
+    input.value = "";
   } else {
     ResultTable.classList.add("active");
     let currentdate = new Date();
@@ -69,11 +67,11 @@ function setinfo(data) {
     weatherCondition.innerHTML = `${data["weather"][0]["description"]}`;
     moveDeg.innerHTML = `<i class="wi wi-wind-direction"></i>${data["wind"]["deg"]} deg`;
     speed.innerHTML = `<i class="wi wi-strong-wind"></i>${data["wind"]["speed"]} Km/h`;
-    
+
     clock.innerHTML =
-    (currentdate.getHours() < 10
-    ? `0${currentdate.getHours()}`
-    : currentdate.getHours()) +
+      (currentdate.getHours() < 10
+        ? `0${currentdate.getHours()}`
+        : currentdate.getHours()) +
       ":" +
       (currentdate.getMinutes() < 10
         ? `0${currentdate.getMinutes()}`

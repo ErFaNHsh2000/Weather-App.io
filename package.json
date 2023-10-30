@@ -1,15 +1,16 @@
 {
-  "name": "weather-api---copy",
+  "name": "weather-app-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w Sass/ -o Css/ --recursive"
+    "sass": "node-sass -w Sass/ -o Css --recursive"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-sass": "^9.0.0",
+    "sweet-alert": "^2.0.5",
     "sweetalert2": "^11.8.0"
   }
 }
