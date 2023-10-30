@@ -13,8 +13,6 @@ const speed = document.querySelector(".speed");
 const clock = document.querySelector(".CurrentClock");
 const day = document.querySelector(".CurrentDay");
 
-import Swal from 'sweetalert2'
-
 const keyid = "7ab9259f7605374feefeeb7ceb852905";
 
 btn.addEventListener("click", () => {
